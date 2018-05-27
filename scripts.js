@@ -8,6 +8,13 @@
 	var showModal = function(event){
 		event.preventDefault();
 		document.querySelector('#modal-overlay').classList.add('show');
+
+		var allModals = document.querySelectorAll('.modal');
+		for(var i = 0; i < allModals.length; i++) { /*why for (modal in allModals) didnt work?*/
+			allModals[i].classList.remove('show');
+			}	
+		var modalId = this.getAttribute("href");
+		document.getElementById(modalId).classList.add('show');
 	};
 	
 	// Mimo, że obecnie mamy tylko jeden link, stosujemy kod dla wielu linków. W ten sposób nie będzie trzeba go zmieniać, kiedy zechcemy mieć więcej linków lub guzików otwierających modale
